@@ -49,20 +49,18 @@ type ToasterProps = {
 };
 
 const toastVariants = cva(
-  "relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-3 overflow-hidden w-full p-3.5 border border-[var(--ui-comp-toast-border)] rounded-lg bg-[var(--ui-comp-toast-bg)] text-[var(--ui-comp-toast-fg)] pointer-events-auto outline-none shadow-[0_16px_40px_-24px_oklch(0_0_0_/_0.45),0_8px_20px_-16px_oklch(0_0_0_/_0.35)] focus-visible:shadow-[0_0_0_2px_var(--background),0_0_0_4px_var(--ring),0_16px_40px_-24px_oklch(0_0_0_/_0.45)] data-[opened]:animate-[app-toast-in_160ms_ease-out] data-[closed]:animate-[app-toast-out_140ms_ease-in_forwards] data-[swipe=move]:translate-x-[var(--kb-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=cancel]:duration-160 data-[swipe=cancel]:ease-out data-[swipe=end]:animate-[app-toast-swipe-out_120ms_ease-out_forwards]",
+  "relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-3 overflow-hidden w-full p-3.5 border border-border rounded-lg bg-overlay text-overlay-foreground pointer-events-auto outline-none shadow-[0_16px_40px_-24px_oklch(0_0_0_/_0.45),0_8px_20px_-16px_oklch(0_0_0_/_0.35)] focus-visible:shadow-[0_0_0_2px_var(--background),0_0_0_4px_var(--ring),0_16px_40px_-24px_oklch(0_0_0_/_0.45)] data-[opened]:animate-[app-toast-in_160ms_ease-out] data-[closed]:animate-[app-toast-out_140ms_ease-in_forwards] data-[swipe=move]:translate-x-[var(--kb-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=cancel]:duration-160 data-[swipe=cancel]:ease-out data-[swipe=end]:animate-[app-toast-swipe-out_120ms_ease-out_forwards]",
   {
     variants: {
       variant: {
         default: "",
         success:
-          "border-[color-mix(in_oklch,var(--ui-sys-color-status-success-bg)_32%,var(--ui-comp-toast-border))]",
-        error:
-          "border-[color-mix(in_oklch,var(--ui-sys-color-status-danger-bg)_32%,var(--ui-comp-toast-border))]",
+          "border-[color-mix(in_oklch,var(--success)_32%,var(--border))]",
+        error: "border-[color-mix(in_oklch,var(--danger)_32%,var(--border))]",
         warning:
-          "border-[color-mix(in_oklch,var(--ui-sys-color-status-warning-bg)_38%,var(--ui-comp-toast-border))]",
-        info: "border-[color-mix(in_oklch,var(--ui-sys-color-status-info-bg)_32%,var(--ui-comp-toast-border))]",
-        loading:
-          "border-[color-mix(in_oklch,var(--ui-sys-color-status-info-bg)_32%,var(--ui-comp-toast-border))]",
+          "border-[color-mix(in_oklch,var(--warning)_38%,var(--border))]",
+        info: "border-[color-mix(in_oklch,var(--info)_32%,var(--border))]",
+        loading: "border-[color-mix(in_oklch,var(--info)_32%,var(--border))]",
       },
     },
     defaultVariants: {
@@ -72,20 +70,16 @@ const toastVariants = cva(
 );
 
 const toastIconWrapperVariants = cva(
-  "grid place-items-center w-6 h-6 rounded-md bg-[var(--ui-sys-color-action-primary-bg-subtle)] text-[var(--ui-sys-color-action-primary-subtle-fg)]",
+  "grid place-items-center w-6 h-6 rounded-md bg-primary-subtle text-primary-subtle-foreground",
   {
     variants: {
       variant: {
         default: "",
-        success:
-          "bg-[var(--ui-sys-color-status-success-bg-subtle)] text-[var(--ui-sys-color-status-success-subtle-fg)]",
-        error:
-          "bg-[var(--ui-sys-color-status-danger-bg-subtle)] text-[var(--ui-sys-color-status-danger-subtle-fg)]",
-        warning:
-          "bg-[var(--ui-sys-color-status-warning-bg-subtle)] text-[var(--ui-sys-color-status-warning-subtle-fg)]",
-        info: "bg-[var(--ui-sys-color-status-info-bg-subtle)] text-[var(--ui-sys-color-status-info-subtle-fg)]",
-        loading:
-          "bg-[var(--ui-sys-color-status-info-bg-subtle)] text-[var(--ui-sys-color-status-info-subtle-fg)]",
+        success: "bg-success-subtle text-success-subtle-foreground",
+        error: "bg-danger-subtle text-danger-subtle-foreground",
+        warning: "bg-warning-subtle text-warning-subtle-foreground",
+        info: "bg-info-subtle text-info-subtle-foreground",
+        loading: "bg-info-subtle text-info-subtle-foreground",
       },
     },
     defaultVariants: {
@@ -131,16 +125,16 @@ const toastProgressTrackVariants = cva(
 );
 
 const toastProgressFillVariants = cva(
-  "h-full w-[var(--kb-toast-progress-fill-width)] bg-[var(--ui-sys-color-action-primary-bg)] transition-[width] duration-250 linear",
+  "h-full w-[var(--kb-toast-progress-fill-width)] bg-primary transition-[width] duration-250 linear",
   {
     variants: {
       variant: {
         default: "",
-        success: "bg-[var(--ui-sys-color-status-success-bg)]",
-        error: "bg-[var(--ui-sys-color-status-danger-bg)]",
-        warning: "bg-[var(--ui-sys-color-status-warning-bg)]",
-        info: "bg-[var(--ui-sys-color-status-info-bg)]",
-        loading: "bg-[var(--ui-sys-color-status-info-bg)]",
+        success: "bg-success",
+        error: "bg-danger",
+        warning: "bg-warning",
+        info: "bg-info",
+        loading: "bg-info",
       },
     },
     defaultVariants: {

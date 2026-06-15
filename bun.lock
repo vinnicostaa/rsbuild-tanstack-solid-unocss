@@ -8,6 +8,7 @@
         "@kobalte/core": "^0.13.11",
         "@tanstack/router-plugin": "^1.168.18",
         "@tanstack/solid-devtools": "^0.8.5",
+        "@tanstack/solid-form": "^1.33.0",
         "@tanstack/solid-form-devtools": "^0.2.29",
         "@tanstack/solid-query-devtools": "^5.101.0",
         "@tanstack/solid-router": "^1.170.15",
@@ -315,6 +316,8 @@
 
     "@tanstack/solid-devtools": ["@tanstack/solid-devtools@0.8.5", "", { "dependencies": { "@tanstack/devtools": "0.12.2" }, "peerDependencies": { "solid-js": ">=1.9.7" } }, "sha512-nWvLVjO5Grwf1zyZezcF2mwJKAHiz8PhQM+wHy28Isi4alPmAo41dPlbadZu0uRnvoUi/PUX1BLseOKjnja36A=="],
 
+    "@tanstack/solid-form": ["@tanstack/solid-form@1.33.0", "", { "dependencies": { "@tanstack/form-core": "1.33.0", "@tanstack/solid-store": "^0.11.0" }, "peerDependencies": { "solid-js": ">=1.9.9" } }, "sha512-+KXp+T/fD+nO5JarDj1W5GctEm4aFuz13DkHVJrdIHGo0evMXlFNWJT57n+TOyvoLoKehknKjM1o41rrKClSTQ=="],
+
     "@tanstack/solid-form-devtools": ["@tanstack/solid-form-devtools@0.2.29", "", { "dependencies": { "@tanstack/devtools-utils": "^0.4.0", "@tanstack/form-devtools": "0.2.29" }, "peerDependencies": { "solid-js": ">=1.9.7" } }, "sha512-7q/Xm7MrtO2DUOoPt63JkLJTgPnfd3ENCwpcvWtxm+/Cv7HJjEUbqLMzjXiSUV7U01gibg1avl2TnaBwj8G11w=="],
 
     "@tanstack/solid-query": ["@tanstack/solid-query@5.101.0", "", { "dependencies": { "@tanstack/query-core": "5.101.0" }, "peerDependencies": { "solid-js": "^1.6.0" } }, "sha512-XoPWynbaWquvSisMvUirakfD9OmLas1cOwt1gBDUTn8HC2CVkZm+O/jBgEa5SL5LrY6vxmWjzzskhXkywLfymw=="],
@@ -324,6 +327,8 @@
     "@tanstack/solid-router": ["@tanstack/solid-router@1.170.15", "", { "dependencies": { "@solid-primitives/refs": "^1.0.8", "@solidjs/meta": "^0.29.4", "@tanstack/history": "1.162.0", "@tanstack/router-core": "1.171.13", "isbot": "^5.1.22" }, "peerDependencies": { "solid-js": "^1.9.10" } }, "sha512-PJKQR3r47EZNzbwYKhEjsYiux0dEyxJdefz7gOlpOmxRuhnqPThMnNMojg6U99i1K73XSTkwlPgBuLG85guuTA=="],
 
     "@tanstack/solid-router-devtools": ["@tanstack/solid-router-devtools@1.167.0", "", { "dependencies": { "@tanstack/router-devtools-core": "1.168.0" }, "peerDependencies": { "@tanstack/router-core": "^1.170.0", "@tanstack/solid-router": "^1.170.0", "solid-js": "^1.9.10" }, "optionalPeers": ["@tanstack/router-core"] }, "sha512-vwQz5NUBxbos30ndUj08eeJ17nwWxniUq4oOFL7YOK2Q8PhdiqS65SSuFwzU96Ij3dfLlp+nv3uht6n7X9UOVw=="],
+
+    "@tanstack/solid-store": ["@tanstack/solid-store@0.11.0", "", { "dependencies": { "@tanstack/store": "0.11.0" }, "peerDependencies": { "solid-js": "^1.6.0" } }, "sha512-2isL0ZnnyI1iN0V+QPrxE3OcPndohBgVlBcHZYoAOIAiU1WoWjVy0q5gb0suPu1Id0h5cKC23JnwzQTxWDZD0w=="],
 
     "@tanstack/store": ["@tanstack/store@0.11.0", "", {}, "sha512-WlzzCt3xi0G6pCAJu1U+2jiECwabETDpQDi3hfkFZvJii9AuZqEKbOiVarX1/bWhTNjU486yQtJCCasi/0q+Cw=="],
 
