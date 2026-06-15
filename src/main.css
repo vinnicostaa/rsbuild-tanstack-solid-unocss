@@ -1,0 +1,596 @@
+@unocss;
+
+@font-face {
+  font-family: "UI Brand";
+  src: url("/fonts/museo-moderno/web/museo-moderno-regular.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "UI Accent";
+  src: url("/fonts/comfortaa/web/comfortaa-light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MuseoModerno";
+  src: url("/fonts/museo-moderno/web/museo-moderno-wght.woff2")
+    format("woff2-variations");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MuseoModerno";
+  src: url("/fonts/museo-moderno/web/museo-moderno-italic-wght.woff2")
+    format("woff2-variations");
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("/fonts/comfortaa/web/comfortaa-wght.woff2")
+    format("woff2-variations");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Reference tokens: raw values for the default boilerplate theme. */
+  --ui-font-brand:
+    "UI Brand", "MuseoModerno", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ui-font-accent:
+    "UI Accent", "Comfortaa", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ui-font-display: var(--ui-font-brand);
+  --ui-font-sans:
+    "Comfortaa", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ui-font-mono:
+    "IBM Plex Mono", "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --ui-ref-color-white: oklch(100% 0 0);
+  --ui-ref-color-black: oklch(0% 0 0);
+
+  --ui-ref-color-platinum-50: oklch(98.2% 0.003 250);
+  --ui-ref-color-platinum-100: oklch(95.5% 0.004 250);
+  --ui-ref-color-platinum-150: oklch(94.5% 0.004 250);
+  --ui-ref-color-platinum-200: oklch(94% 0.004 250);
+  --ui-ref-color-platinum-300: oklch(91.5% 0.004 250);
+  --ui-ref-color-platinum-400: oklch(90.5% 0.006 250);
+  --ui-ref-color-platinum-600: oklch(84.5% 0.006 250);
+  --ui-ref-color-platinum-700: oklch(78% 0.012 250);
+  --ui-ref-color-platinum-800: oklch(70% 0.006 250);
+
+  --ui-ref-color-graphite-400: oklch(68% 0.006 250);
+  --ui-ref-color-graphite-500: oklch(56% 0.012 255);
+  --ui-ref-color-graphite-600: oklch(48% 0.01 255);
+  --ui-ref-color-graphite-800: oklch(26% 0.006 255);
+
+  --ui-ref-color-carbon-900: oklch(21% 0.007 255);
+  --ui-ref-color-carbon-925: oklch(17% 0.006 255);
+  --ui-ref-color-carbon-950: oklch(15% 0.006 255);
+  --ui-ref-color-carbon-960: oklch(14.5% 0.006 255);
+  --ui-ref-color-carbon-970: oklch(13.5% 0.006 255);
+  --ui-ref-color-carbon-980: oklch(12.5% 0.005 255);
+  --ui-ref-color-carbon-990: oklch(8.5% 0.004 255);
+
+  --ui-ref-color-green-100: oklch(88% 0.04 155);
+  --ui-ref-color-green-300: oklch(72% 0.08 155);
+  --ui-ref-color-green-600: oklch(52% 0.075 155);
+  --ui-ref-color-green-800: oklch(34% 0.055 155);
+
+  --ui-ref-color-blue-100: oklch(88% 0.035 250);
+  --ui-ref-color-blue-300: oklch(74% 0.07 250);
+  --ui-ref-color-blue-600: oklch(53% 0.075 250);
+  --ui-ref-color-blue-800: oklch(34% 0.06 250);
+
+  --ui-ref-color-amber-100: oklch(90% 0.04 80);
+  --ui-ref-color-amber-300: oklch(76% 0.09 80);
+  --ui-ref-color-amber-600: oklch(62% 0.1 80);
+  --ui-ref-color-amber-800: oklch(40% 0.075 75);
+
+  --ui-ref-color-red-100: oklch(90% 0.045 25);
+  --ui-ref-color-red-400: oklch(68% 0.12 25);
+  --ui-ref-color-red-600: oklch(52% 0.12 25);
+  --ui-ref-color-red-800: oklch(38% 0.1 25);
+
+  --ui-radius-base: 0.5rem;
+  --ui-radius-lg: var(--ui-radius-base);
+  --ui-radius-xs: calc(var(--ui-radius-base) * 0.25);
+  --ui-radius-sm: calc(var(--ui-radius-base) * 0.5);
+  --ui-radius-md: calc(var(--ui-radius-base) * 0.75);
+  --ui-radius-xl: calc(var(--ui-radius-base) * 1.5);
+  --ui-radius-2xl: calc(var(--ui-radius-base) * 2);
+  --ui-radius-3xl: calc(var(--ui-radius-base) * 3);
+  --ui-radius-4xl: calc(var(--ui-radius-base) * 4);
+
+  /* System tokens: semantic roles consumed by app-level surfaces. */
+  --ui-sys-color-bg-canvas: var(--ui-ref-color-platinum-50);
+  --ui-sys-color-bg-page: var(--ui-ref-color-platinum-300);
+  --ui-sys-color-bg-surface: var(--ui-ref-color-white);
+  --ui-sys-color-bg-popover: var(--ui-ref-color-white);
+  --ui-sys-color-bg-overlay: var(--ui-ref-color-white);
+  --ui-sys-color-bg-muted: var(--ui-ref-color-platinum-200);
+  --ui-sys-color-bg-accent: var(--ui-ref-color-platinum-400);
+
+  --ui-sys-color-fg-default: var(--ui-ref-color-carbon-970);
+  --ui-sys-color-fg-muted: var(--ui-ref-color-graphite-600);
+  --ui-sys-color-fg-inverse: var(--ui-ref-color-platinum-50);
+
+  --ui-sys-color-border-default: var(--ui-ref-color-platinum-600);
+  --ui-sys-color-border-input: var(--ui-sys-color-border-default);
+  --ui-sys-color-focus-ring: var(--ui-ref-color-graphite-500);
+
+  --ui-sys-color-action-primary-bg: var(--ui-ref-color-carbon-950);
+  --ui-sys-color-action-primary-fg: var(--ui-ref-color-platinum-50);
+  --ui-sys-color-action-primary-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-action-primary-bg) 8%,
+    transparent
+  );
+  --ui-sys-color-action-primary-subtle-fg: var(
+    --ui-sys-color-action-primary-bg
+  );
+
+  --ui-sys-color-secondary-bg: var(--ui-sys-color-bg-muted);
+  --ui-sys-color-secondary-fg: var(--ui-ref-color-carbon-900);
+
+  --ui-sys-color-status-success-bg: var(--ui-ref-color-green-600);
+  --ui-sys-color-status-success-fg: var(--ui-ref-color-platinum-50);
+  --ui-sys-color-status-success-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-success-bg) 14%,
+    transparent
+  );
+  --ui-sys-color-status-success-subtle-fg: var(--ui-ref-color-green-800);
+
+  --ui-sys-color-status-info-bg: var(--ui-ref-color-blue-600);
+  --ui-sys-color-status-info-fg: var(--ui-ref-color-platinum-50);
+  --ui-sys-color-status-info-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-info-bg) 14%,
+    transparent
+  );
+  --ui-sys-color-status-info-subtle-fg: var(--ui-ref-color-blue-800);
+
+  --ui-sys-color-status-warning-bg: var(--ui-ref-color-amber-600);
+  --ui-sys-color-status-warning-fg: var(--ui-sys-color-fg-default);
+  --ui-sys-color-status-warning-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-warning-bg) 16%,
+    transparent
+  );
+  --ui-sys-color-status-warning-subtle-fg: var(--ui-ref-color-amber-800);
+
+  --ui-sys-color-status-danger-bg: var(--ui-ref-color-red-600);
+  --ui-sys-color-status-danger-fg: var(--ui-ref-color-white);
+  --ui-sys-color-status-danger-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-danger-bg) 14%,
+    transparent
+  );
+  --ui-sys-color-status-danger-subtle-fg: var(--ui-ref-color-red-800);
+
+  --ui-sys-color-chart-1: var(--ui-sys-color-action-primary-bg);
+  --ui-sys-color-chart-2: var(--ui-ref-color-graphite-600);
+  --ui-sys-color-chart-3: var(--ui-sys-color-status-info-bg);
+  --ui-sys-color-chart-4: var(--ui-sys-color-status-warning-bg);
+  --ui-sys-color-chart-5: var(--ui-sys-color-status-danger-bg);
+
+  /* Component tokens: stable hooks for component-level refinements. */
+  --ui-comp-navbar-bg: oklch(98.2% 0.003 250 / 0.9);
+  --ui-comp-navbar-fg: var(--ui-sys-color-fg-default);
+
+  --ui-comp-sidebar-bg: var(--ui-ref-color-platinum-100);
+  --ui-comp-sidebar-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-sidebar-primary-bg: var(--ui-sys-color-action-primary-bg-subtle);
+  --ui-comp-sidebar-primary-fg: var(--ui-sys-color-action-primary-subtle-fg);
+  --ui-comp-sidebar-accent-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-sidebar-accent-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-sidebar-border: var(--ui-sys-color-border-default);
+  --ui-comp-sidebar-ring: var(--ui-sys-color-focus-ring);
+
+  --ui-comp-button-primary-bg: var(--ui-sys-color-action-primary-bg);
+  --ui-comp-button-primary-fg: var(--ui-sys-color-action-primary-fg);
+  --ui-comp-button-primary-hover-bg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-primary-hover-fg: var(--ui-sys-color-bg-canvas);
+
+  --ui-comp-button-secondary-bg: var(--ui-sys-color-secondary-bg);
+  --ui-comp-button-secondary-fg: var(--ui-sys-color-secondary-fg);
+  --ui-comp-button-secondary-border: var(--ui-sys-color-border-default);
+  --ui-comp-button-secondary-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-button-secondary-hover-fg: var(--ui-sys-color-fg-default);
+
+  --ui-comp-input-bg: var(--ui-sys-color-bg-canvas);
+  --ui-comp-input-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-input-border: var(--ui-sys-color-border-input);
+  --ui-comp-input-placeholder-fg: var(--ui-sys-color-fg-muted);
+
+  --ui-comp-toast-bg: var(--ui-sys-color-bg-overlay);
+  --ui-comp-toast-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-toast-border: var(--ui-sys-color-border-default);
+
+  /* Compatibility aliases for UnoCSS, shadcn-style APIs, and existing code. */
+  --font-brand: var(--ui-font-brand);
+  --font-accent: var(--ui-font-accent);
+  --font-display: var(--ui-font-display);
+  --font-sans: var(--ui-font-sans);
+  --font-mono: var(--ui-font-mono);
+
+  --background: var(--ui-sys-color-bg-canvas);
+  --foreground: var(--ui-sys-color-fg-default);
+  --page: var(--ui-sys-color-bg-page);
+
+  --card: var(--ui-sys-color-bg-surface);
+  --card-foreground: var(--ui-sys-color-fg-default);
+
+  --popover: var(--ui-sys-color-bg-popover);
+  --popover-foreground: var(--ui-sys-color-fg-default);
+
+  --primary: var(--ui-sys-color-action-primary-bg);
+  --primary-foreground: var(--ui-sys-color-action-primary-fg);
+  --primary-subtle: var(--ui-sys-color-action-primary-bg-subtle);
+  --primary-subtle-foreground: var(--ui-sys-color-action-primary-subtle-fg);
+
+  --secondary: var(--ui-sys-color-secondary-bg);
+  --secondary-foreground: var(--ui-sys-color-secondary-fg);
+
+  --overlay: var(--ui-sys-color-bg-overlay);
+  --overlay-foreground: var(--ui-sys-color-fg-default);
+
+  --accent: var(--ui-sys-color-bg-accent);
+  --accent-foreground: var(--ui-sys-color-fg-default);
+
+  --muted: var(--ui-sys-color-bg-muted);
+  --muted-foreground: var(--ui-sys-color-fg-muted);
+
+  --success: var(--ui-sys-color-status-success-bg);
+  --success-foreground: var(--ui-sys-color-status-success-fg);
+  --success-subtle: var(--ui-sys-color-status-success-bg-subtle);
+  --success-subtle-foreground: var(--ui-sys-color-status-success-subtle-fg);
+
+  --info: var(--ui-sys-color-status-info-bg);
+  --info-foreground: var(--ui-sys-color-status-info-fg);
+  --info-subtle: var(--ui-sys-color-status-info-bg-subtle);
+  --info-subtle-foreground: var(--ui-sys-color-status-info-subtle-fg);
+
+  --warning: var(--ui-sys-color-status-warning-bg);
+  --warning-foreground: var(--ui-sys-color-status-warning-fg);
+  --warning-subtle: var(--ui-sys-color-status-warning-bg-subtle);
+  --warning-subtle-foreground: var(--ui-sys-color-status-warning-subtle-fg);
+
+  --danger: var(--ui-sys-color-status-danger-bg);
+  --danger-foreground: var(--ui-sys-color-status-danger-fg);
+  --danger-subtle: var(--ui-sys-color-status-danger-bg-subtle);
+  --danger-subtle-foreground: var(--ui-sys-color-status-danger-subtle-fg);
+  --destructive: var(--danger);
+  --destructive-foreground: var(--danger-foreground);
+  --destructive-subtle: var(--danger-subtle);
+  --destructive-subtle-foreground: var(--danger-subtle-foreground);
+
+  --border: var(--ui-sys-color-border-default);
+  --input: var(--ui-sys-color-border-input);
+  --ring: var(--ui-sys-color-focus-ring);
+
+  --navbar: var(--ui-comp-navbar-bg);
+  --navbar-foreground: var(--ui-comp-navbar-fg);
+
+  --sidebar: var(--ui-comp-sidebar-bg);
+  --sidebar-foreground: var(--ui-comp-sidebar-fg);
+  --sidebar-primary: var(--ui-comp-sidebar-primary-bg);
+  --sidebar-primary-foreground: var(--ui-comp-sidebar-primary-fg);
+  --sidebar-accent: var(--ui-comp-sidebar-accent-bg);
+  --sidebar-accent-foreground: var(--ui-comp-sidebar-accent-fg);
+  --sidebar-border: var(--ui-comp-sidebar-border);
+  --sidebar-ring: var(--ui-comp-sidebar-ring);
+
+  --chart-1: var(--ui-sys-color-chart-1);
+  --chart-2: var(--ui-sys-color-chart-2);
+  --chart-3: var(--ui-sys-color-chart-3);
+  --chart-4: var(--ui-sys-color-chart-4);
+  --chart-5: var(--ui-sys-color-chart-5);
+
+  --radius: var(--ui-radius-base);
+  --radius-lg: var(--ui-radius-lg);
+  --radius-xs: var(--ui-radius-xs);
+  --radius-sm: var(--ui-radius-sm);
+  --radius-md: var(--ui-radius-md);
+  --radius-xl: var(--ui-radius-xl);
+  --radius-2xl: var(--ui-radius-2xl);
+  --radius-3xl: var(--ui-radius-3xl);
+  --radius-4xl: var(--ui-radius-4xl);
+}
+
+.dark,
+[data-kb-theme="dark"] {
+  color-scheme: dark;
+
+  --ui-sys-color-bg-canvas: var(--ui-ref-color-carbon-990);
+  --ui-sys-color-bg-page: oklch(18% 0.006 255 / 0.58);
+  --ui-sys-color-bg-surface: var(--ui-ref-color-carbon-980);
+  --ui-sys-color-bg-popover: var(--ui-ref-color-carbon-950);
+  --ui-sys-color-bg-overlay: var(--ui-ref-color-carbon-960);
+  --ui-sys-color-bg-muted: var(--ui-ref-color-carbon-925);
+  --ui-sys-color-bg-accent: var(--ui-ref-color-carbon-900);
+
+  --ui-sys-color-fg-default: var(--ui-ref-color-platinum-100);
+  --ui-sys-color-fg-muted: var(--ui-ref-color-platinum-800);
+  --ui-sys-color-fg-inverse: var(--ui-ref-color-carbon-990);
+
+  --ui-sys-color-border-default: var(--ui-ref-color-graphite-800);
+  --ui-sys-color-border-input: var(--ui-sys-color-border-default);
+  --ui-sys-color-focus-ring: var(--ui-ref-color-graphite-400);
+
+  --ui-sys-color-action-primary-bg: var(--ui-ref-color-platinum-150);
+  --ui-sys-color-action-primary-fg: var(--ui-ref-color-carbon-990);
+  --ui-sys-color-action-primary-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-action-primary-bg) 10%,
+    transparent
+  );
+  --ui-sys-color-action-primary-subtle-fg: var(--ui-ref-color-white);
+
+  --ui-sys-color-secondary-bg: var(--ui-sys-color-bg-muted);
+  --ui-sys-color-secondary-fg: var(--ui-sys-color-fg-default);
+
+  --ui-sys-color-status-success-bg: var(--ui-ref-color-green-300);
+  --ui-sys-color-status-success-fg: var(--ui-ref-color-carbon-990);
+  --ui-sys-color-status-success-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-success-bg) 16%,
+    transparent
+  );
+  --ui-sys-color-status-success-subtle-fg: var(--ui-ref-color-green-100);
+
+  --ui-sys-color-status-info-bg: var(--ui-ref-color-blue-300);
+  --ui-sys-color-status-info-fg: var(--ui-ref-color-carbon-990);
+  --ui-sys-color-status-info-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-info-bg) 16%,
+    transparent
+  );
+  --ui-sys-color-status-info-subtle-fg: var(--ui-ref-color-blue-100);
+
+  --ui-sys-color-status-warning-bg: var(--ui-ref-color-amber-300);
+  --ui-sys-color-status-warning-fg: var(--ui-ref-color-carbon-990);
+  --ui-sys-color-status-warning-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-warning-bg) 18%,
+    transparent
+  );
+  --ui-sys-color-status-warning-subtle-fg: var(--ui-ref-color-amber-100);
+
+  --ui-sys-color-status-danger-bg: var(--ui-ref-color-red-400);
+  --ui-sys-color-status-danger-fg: var(--ui-ref-color-white);
+  --ui-sys-color-status-danger-bg-subtle: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-danger-bg) 18%,
+    transparent
+  );
+  --ui-sys-color-status-danger-subtle-fg: var(--ui-ref-color-red-100);
+
+  --ui-sys-color-chart-2: var(--ui-ref-color-platinum-700);
+
+  --ui-comp-navbar-bg: oklch(8.5% 0.004 255 / 0.9);
+  --ui-comp-sidebar-bg: var(--ui-ref-color-carbon-980);
+}
+
+::selection {
+  background-color: var(--primary-subtle);
+  color: var(--primary-subtle-foreground);
+}
+
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  border-color: var(--border, currentColor);
+}
+
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+html {
+  min-height: 100%;
+  background-color: var(--background);
+  font-variation-settings: normal;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  accent-color: var(--primary);
+  caret-color: var(--primary);
+  font-family: var(--font-sans);
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:where(
+  button,
+  [href],
+  input,
+  select,
+  textarea,
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.touch-target {
+  position: relative;
+}
+
+.touch-target::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  min-height: 44px;
+  min-width: 44px;
+  z-index: 9999;
+}
+
+@media (pointer: fine) {
+  .touch-target::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes app-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes app-toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(-0.35rem) scale(0.98);
+  }
+}
+
+@keyframes app-toast-swipe-out {
+  from {
+    transform: translateX(var(--kb-toast-swipe-end-x));
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes app-toast-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes app-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes app-content-show {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes app-content-hide {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes app-accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--kb-accordion-content-height);
+  }
+}
+
+@keyframes app-accordion-up {
+  from {
+    height: var(--kb-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}

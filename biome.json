@@ -1,0 +1,26 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "linter": {
+    "includes": ["**", "!test/**"],
+    "rules": {
+      "suspicious": {
+        "noUnknownAtRules": {
+          "level": "error",
+          "options": {
+            "ignore": ["unocss"]
+          }
+        }
+      }
+    }
+  },
+  "assist": {
+    "enabled": false
+  },
+  "files": {
+    "includes": ["src/**/*.tsx", "test/**/*.tsx", "!**/*.min.tsx"]
+  }
+}
