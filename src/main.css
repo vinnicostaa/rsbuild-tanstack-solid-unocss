@@ -194,6 +194,16 @@
   /* Component tokens: stable hooks for component-level refinements. */
   --ui-comp-navbar-bg: oklch(98.2% 0.003 250 / 0.9);
   --ui-comp-navbar-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-navbar-border: var(--ui-sys-color-border-default);
+  --ui-comp-navbar-muted-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-navbar-brand-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-navbar-brand-hover-fg: var(--ui-sys-color-action-primary-bg);
+  --ui-comp-navbar-brand-dot-bg: var(--ui-sys-color-action-primary-bg);
+  --ui-comp-navbar-link-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-navbar-link-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-navbar-link-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-navbar-link-active-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-navbar-link-active-fg: var(--ui-sys-color-fg-default);
 
   --ui-comp-sidebar-bg: var(--ui-ref-color-platinum-100);
   --ui-comp-sidebar-fg: var(--ui-sys-color-fg-default);
@@ -204,25 +214,195 @@
   --ui-comp-sidebar-border: var(--ui-sys-color-border-default);
   --ui-comp-sidebar-ring: var(--ui-sys-color-focus-ring);
 
+  --ui-comp-page-title-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-page-body-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-page-kicker-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-island-bg: var(--ui-sys-color-bg-overlay);
+  --ui-comp-island-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-island-border: var(--ui-sys-color-border-default);
+  --ui-comp-feature-card-bg: color-mix(
+    in oklch,
+    var(--ui-sys-color-bg-surface) 76%,
+    transparent
+  );
+  --ui-comp-feature-card-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-feature-card-description-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-feature-card-border: var(--ui-sys-color-border-default);
+  --ui-comp-feature-card-hover-border: var(--ui-sys-color-focus-ring);
+
   --ui-comp-button-primary-bg: var(--ui-sys-color-action-primary-bg);
   --ui-comp-button-primary-fg: var(--ui-sys-color-action-primary-fg);
   --ui-comp-button-primary-hover-bg: var(--ui-sys-color-fg-default);
   --ui-comp-button-primary-hover-fg: var(--ui-sys-color-bg-canvas);
-
   --ui-comp-button-secondary-bg: var(--ui-sys-color-secondary-bg);
   --ui-comp-button-secondary-fg: var(--ui-sys-color-secondary-fg);
   --ui-comp-button-secondary-border: var(--ui-sys-color-border-default);
   --ui-comp-button-secondary-hover-bg: var(--ui-sys-color-bg-accent);
   --ui-comp-button-secondary-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-outline-bg: var(--ui-sys-color-bg-canvas);
+  --ui-comp-button-outline-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-outline-border: var(--ui-sys-color-border-input);
+  --ui-comp-button-outline-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-button-outline-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-ghost-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-ghost-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-button-ghost-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-link-fg: var(--ui-sys-color-action-primary-bg);
+  --ui-comp-button-link-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-button-info-bg: var(--ui-sys-color-status-info-bg);
+  --ui-comp-button-info-fg: var(--ui-sys-color-status-info-fg);
+  --ui-comp-button-info-hover-bg: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-info-bg) 86%,
+    var(--ui-ref-color-black)
+  );
+  --ui-comp-button-danger-bg: var(--ui-sys-color-status-danger-bg);
+  --ui-comp-button-danger-fg: var(--ui-sys-color-status-danger-fg);
+  --ui-comp-button-danger-hover-bg: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-danger-bg) 86%,
+    var(--ui-ref-color-black)
+  );
+  --ui-comp-button-disabled-bg: var(--ui-sys-color-bg-muted);
+  --ui-comp-button-disabled-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-button-disabled-border: var(--ui-sys-color-border-default);
+
+  --ui-comp-field-label-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-field-description-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-field-error-fg: var(--ui-sys-color-status-danger-subtle-fg);
+  --ui-comp-field-validating-fg: var(--ui-sys-color-status-info-bg);
+
+  --ui-comp-form-field-bg: color-mix(
+    in oklch,
+    var(--ui-sys-color-bg-muted) 30%,
+    transparent
+  );
+  --ui-comp-form-field-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-form-field-border: var(--ui-sys-color-border-input);
+  --ui-comp-form-field-invalid-border: var(--ui-sys-color-status-danger-bg);
+  --ui-comp-form-field-icon-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-form-field-validating-fg: var(--ui-sys-color-status-info-bg);
 
   --ui-comp-input-bg: var(--ui-sys-color-bg-canvas);
   --ui-comp-input-fg: var(--ui-sys-color-fg-default);
   --ui-comp-input-border: var(--ui-sys-color-border-input);
   --ui-comp-input-placeholder-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-input-focus-border: var(--ui-sys-color-focus-ring);
+  --ui-comp-input-invalid-border: var(--ui-sys-color-status-danger-bg);
+  --ui-comp-input-disabled-bg: var(--ui-sys-color-bg-muted);
+  --ui-comp-input-disabled-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-input-disabled-border: var(--ui-sys-color-border-default);
+
+  --ui-comp-checkbox-bg: var(--ui-sys-color-bg-canvas);
+  --ui-comp-checkbox-border: var(--ui-sys-color-border-input);
+  --ui-comp-checkbox-invalid-border: var(--ui-sys-color-status-danger-bg);
+  --ui-comp-checkbox-disabled-opacity: 0.55;
+  --ui-comp-checkbox-label-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-checkbox-description-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-checkbox-error-fg: var(--ui-sys-color-status-danger-subtle-fg);
+  --ui-comp-checkbox-default-checked-bg: var(--ui-sys-color-action-primary-bg);
+  --ui-comp-checkbox-default-checked-fg: var(--ui-sys-color-action-primary-fg);
+  --ui-comp-checkbox-default-checked-border: var(
+    --ui-sys-color-action-primary-bg
+  );
+  --ui-comp-checkbox-secondary-checked-bg: var(--ui-sys-color-secondary-bg);
+  --ui-comp-checkbox-secondary-checked-fg: var(--ui-sys-color-secondary-fg);
+  --ui-comp-checkbox-secondary-checked-border: var(
+    --ui-sys-color-border-default
+  );
+  --ui-comp-checkbox-success-checked-bg: var(--ui-sys-color-status-success-bg);
+  --ui-comp-checkbox-success-checked-fg: var(--ui-sys-color-status-success-fg);
+  --ui-comp-checkbox-success-checked-border: var(
+    --ui-sys-color-status-success-bg
+  );
+  --ui-comp-checkbox-warning-checked-bg: var(--ui-sys-color-status-warning-bg);
+  --ui-comp-checkbox-warning-checked-fg: var(--ui-sys-color-status-warning-fg);
+  --ui-comp-checkbox-warning-checked-border: var(
+    --ui-sys-color-status-warning-bg
+  );
+  --ui-comp-checkbox-info-checked-bg: var(--ui-sys-color-status-info-bg);
+  --ui-comp-checkbox-info-checked-fg: var(--ui-sys-color-status-info-fg);
+  --ui-comp-checkbox-info-checked-border: var(--ui-sys-color-status-info-bg);
+  --ui-comp-checkbox-danger-checked-bg: var(--ui-sys-color-status-danger-bg);
+  --ui-comp-checkbox-danger-checked-fg: var(--ui-sys-color-status-danger-fg);
+  --ui-comp-checkbox-danger-checked-border: var(
+    --ui-sys-color-status-danger-bg
+  );
+
+  --ui-comp-dialog-overlay-bg: color-mix(
+    in oklch,
+    var(--ui-sys-color-bg-canvas) 82%,
+    transparent
+  );
+  --ui-comp-dialog-bg: var(--ui-sys-color-bg-overlay);
+  --ui-comp-dialog-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-dialog-description-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-dialog-border: var(--ui-sys-color-border-default);
+  --ui-comp-dialog-shadow:
+    0 24px 80px -40px
+      color-mix(in oklch, var(--ui-ref-color-black) 50%, transparent),
+    0 8px 30px -20px
+      color-mix(in oklch, var(--ui-ref-color-black) 38%, transparent);
+  --ui-comp-dialog-close-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-dialog-close-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-dialog-close-hover-fg: var(--ui-sys-color-fg-default);
 
   --ui-comp-toast-bg: var(--ui-sys-color-bg-overlay);
   --ui-comp-toast-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-toast-description-fg: var(--ui-sys-color-fg-muted);
   --ui-comp-toast-border: var(--ui-sys-color-border-default);
+  --ui-comp-toast-shadow:
+    0 16px 40px -24px
+      color-mix(in oklch, var(--ui-ref-color-black) 45%, transparent),
+    0 8px 20px -16px
+      color-mix(in oklch, var(--ui-ref-color-black) 35%, transparent);
+  --ui-comp-toast-focus-shadow:
+    0 0 0 2px var(--ui-sys-color-bg-canvas),
+    0 0 0 4px var(--ui-sys-color-focus-ring),
+    0 16px 40px -24px
+      color-mix(in oklch, var(--ui-ref-color-black) 45%, transparent);
+  --ui-comp-toast-default-icon-bg: var(--ui-sys-color-action-primary-bg-subtle);
+  --ui-comp-toast-default-icon-fg: var(--ui-sys-color-action-primary-subtle-fg);
+  --ui-comp-toast-success-border: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-success-bg) 32%,
+    var(--ui-sys-color-border-default)
+  );
+  --ui-comp-toast-success-icon-bg: var(--ui-sys-color-status-success-bg-subtle);
+  --ui-comp-toast-success-icon-fg: var(--ui-sys-color-status-success-subtle-fg);
+  --ui-comp-toast-warning-border: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-warning-bg) 38%,
+    var(--ui-sys-color-border-default)
+  );
+  --ui-comp-toast-warning-icon-bg: var(--ui-sys-color-status-warning-bg-subtle);
+  --ui-comp-toast-warning-icon-fg: var(--ui-sys-color-status-warning-subtle-fg);
+  --ui-comp-toast-info-border: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-info-bg) 32%,
+    var(--ui-sys-color-border-default)
+  );
+  --ui-comp-toast-info-icon-bg: var(--ui-sys-color-status-info-bg-subtle);
+  --ui-comp-toast-info-icon-fg: var(--ui-sys-color-status-info-subtle-fg);
+  --ui-comp-toast-danger-border: color-mix(
+    in oklch,
+    var(--ui-sys-color-status-danger-bg) 32%,
+    var(--ui-sys-color-border-default)
+  );
+  --ui-comp-toast-danger-icon-bg: var(--ui-sys-color-status-danger-bg-subtle);
+  --ui-comp-toast-danger-icon-fg: var(--ui-sys-color-status-danger-subtle-fg);
+  --ui-comp-toast-close-fg: var(--ui-sys-color-fg-muted);
+  --ui-comp-toast-close-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-toast-close-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-toast-action-bg: var(--ui-sys-color-secondary-bg);
+  --ui-comp-toast-action-fg: var(--ui-sys-color-secondary-fg);
+  --ui-comp-toast-action-hover-bg: var(--ui-sys-color-bg-accent);
+  --ui-comp-toast-action-hover-fg: var(--ui-sys-color-fg-default);
+  --ui-comp-toast-progress-default-bg: var(--ui-sys-color-action-primary-bg);
+  --ui-comp-toast-progress-success-bg: var(--ui-sys-color-status-success-bg);
+  --ui-comp-toast-progress-warning-bg: var(--ui-sys-color-status-warning-bg);
+  --ui-comp-toast-progress-info-bg: var(--ui-sys-color-status-info-bg);
+  --ui-comp-toast-progress-danger-bg: var(--ui-sys-color-status-danger-bg);
 
   /* Compatibility aliases for UnoCSS, shadcn-style APIs, and existing code. */
   --font-brand: var(--ui-font-brand);
@@ -501,6 +681,46 @@ textarea {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes app-dialog-overlay-show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes app-dialog-overlay-hide {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes app-dialog-content-show {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes app-dialog-content-hide {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
   }
 }
 

@@ -59,7 +59,7 @@ export function FieldInfo(props: FieldInfoProps) {
       </Show>
 
       <Show when={props.field.state.meta.isValidating}>
-        <span class="mt-1 flex items-center gap-1 text-info text-xs">
+        <span class="mt-1 flex items-center gap-1 [color:var(--ui-comp-form-field-validating-fg)] text-xs">
           <span
             class="i-lucide-loader-2 size-3 animate-spin"
             aria-hidden="true"

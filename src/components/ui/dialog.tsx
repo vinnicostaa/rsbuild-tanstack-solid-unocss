@@ -33,7 +33,7 @@ const DialogOverlay = <T extends ValidComponent = "div">(
   return (
     <DialogPrimitive.Overlay
       class={cn(
-        "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[expanded]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[expanded]:fade-in-0",
+        "fixed inset-0 z-50 [background-color:var(--ui-comp-dialog-overlay-bg)] backdrop-blur-sm data-[expanded]:animate-[app-dialog-overlay-show_160ms_ease-out_both] data-[closed]:animate-[app-dialog-overlay-hide_120ms_ease-in_forwards]",
         local.class,
       )}
       {...others}
@@ -66,7 +66,7 @@ const DialogContent = <T extends ValidComponent = "div">(
   const content = (
     <DialogPrimitive.Content
       class={cn(
-        "fixed left-1/2 top-1/2 z-50 grid max-h-[90vh] w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto border border-border bg-overlay p-6 text-overlay-foreground shadow-lg duration-200 data-[expanded]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[expanded]:fade-in-0 data-[closed]:zoom-out-95 data-[expanded]:zoom-in-95 data-[closed]:slide-out-to-left-1/2 data-[closed]:slide-out-to-top-[48%] data-[expanded]:slide-in-from-left-1/2 data-[expanded]:slide-in-from-top-[48%] sm:rounded-lg",
+        "fixed left-1/2 top-1/2 z-50 grid max-h-[90vh] w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto border [border-color:var(--ui-comp-dialog-border)] [background-color:var(--ui-comp-dialog-bg)] p-6 [color:var(--ui-comp-dialog-fg)] [box-shadow:var(--ui-comp-dialog-shadow)] data-[expanded]:animate-[app-dialog-content-show_180ms_ease-out_both] data-[closed]:animate-[app-dialog-content-hide_140ms_ease-in_forwards] sm:rounded-lg",
         local.class,
       )}
       {...others}
@@ -74,7 +74,7 @@ const DialogContent = <T extends ValidComponent = "div">(
       {local.children}
 
       {!local.hideCloseButton && (
-        <DialogPrimitive.CloseButton class="absolute right-4 top-4 rounded-sm text-muted-foreground opacity-70 ring-offset-background transition-opacity hover:text-foreground hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+        <DialogPrimitive.CloseButton class="absolute right-4 top-4 rounded-sm [color:var(--ui-comp-dialog-close-fg)] opacity-70 ring-offset-background transition-colors hover:[background-color:var(--ui-comp-dialog-close-hover-bg)] hover:[color:var(--ui-comp-dialog-close-hover-fg)] hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
           <span class="i-lucide-x size-4" aria-hidden="true" />
           <span class="sr-only">Fechar</span>
         </DialogPrimitive.CloseButton>
@@ -135,7 +135,7 @@ const DialogTitle = <T extends ValidComponent = "h2">(
   return (
     <DialogPrimitive.Title
       class={cn(
-        "text-lg font-semibold leading-none tracking-tight",
+        "text-lg font-semibold leading-none tracking-tight [color:var(--ui-comp-dialog-fg)]",
         local.class,
       )}
       {...others}
@@ -157,7 +157,10 @@ const DialogDescription = <T extends ValidComponent = "p">(
 
   return (
     <DialogPrimitive.Description
-      class={cn("text-sm text-muted-foreground", local.class)}
+      class={cn(
+        "text-sm [color:var(--ui-comp-dialog-description-fg)]",
+        local.class,
+      )}
       {...others}
     />
   );

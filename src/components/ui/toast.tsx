@@ -49,18 +49,16 @@ type ToasterProps = {
 };
 
 const toastVariants = cva(
-  "relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-3 overflow-hidden w-full p-3.5 border border-border rounded-lg bg-overlay text-overlay-foreground pointer-events-auto outline-none shadow-[0_16px_40px_-24px_oklch(0_0_0_/_0.45),0_8px_20px_-16px_oklch(0_0_0_/_0.35)] focus-visible:shadow-[0_0_0_2px_var(--background),0_0_0_4px_var(--ring),0_16px_40px_-24px_oklch(0_0_0_/_0.45)] data-[opened]:animate-[app-toast-in_160ms_ease-out] data-[closed]:animate-[app-toast-out_140ms_ease-in_forwards] data-[swipe=move]:translate-x-[var(--kb-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=cancel]:duration-160 data-[swipe=cancel]:ease-out data-[swipe=end]:animate-[app-toast-swipe-out_120ms_ease-out_forwards]",
+  "relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-3 overflow-hidden w-full p-3.5 border [border-color:var(--ui-comp-toast-border)] rounded-lg [background-color:var(--ui-comp-toast-bg)] [color:var(--ui-comp-toast-fg)] pointer-events-auto outline-none [box-shadow:var(--ui-comp-toast-shadow)] focus-visible:[box-shadow:var(--ui-comp-toast-focus-shadow)] data-[opened]:animate-[app-toast-in_160ms_ease-out] data-[closed]:animate-[app-toast-out_140ms_ease-in_forwards] data-[swipe=move]:translate-x-[var(--kb-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=cancel]:duration-160 data-[swipe=cancel]:ease-out data-[swipe=end]:animate-[app-toast-swipe-out_120ms_ease-out_forwards]",
   {
     variants: {
       variant: {
         default: "",
-        success:
-          "border-[color-mix(in_oklch,var(--success)_32%,var(--border))]",
-        error: "border-[color-mix(in_oklch,var(--danger)_32%,var(--border))]",
-        warning:
-          "border-[color-mix(in_oklch,var(--warning)_38%,var(--border))]",
-        info: "border-[color-mix(in_oklch,var(--info)_32%,var(--border))]",
-        loading: "border-[color-mix(in_oklch,var(--info)_32%,var(--border))]",
+        success: "[border-color:var(--ui-comp-toast-success-border)]",
+        error: "[border-color:var(--ui-comp-toast-danger-border)]",
+        warning: "[border-color:var(--ui-comp-toast-warning-border)]",
+        info: "[border-color:var(--ui-comp-toast-info-border)]",
+        loading: "[border-color:var(--ui-comp-toast-info-border)]",
       },
     },
     defaultVariants: {
@@ -70,16 +68,20 @@ const toastVariants = cva(
 );
 
 const toastIconWrapperVariants = cva(
-  "grid place-items-center w-6 h-6 rounded-md bg-primary-subtle text-primary-subtle-foreground",
+  "grid place-items-center w-6 h-6 rounded-md [background-color:var(--ui-comp-toast-default-icon-bg)] [color:var(--ui-comp-toast-default-icon-fg)]",
   {
     variants: {
       variant: {
         default: "",
-        success: "bg-success-subtle text-success-subtle-foreground",
-        error: "bg-danger-subtle text-danger-subtle-foreground",
-        warning: "bg-warning-subtle text-warning-subtle-foreground",
-        info: "bg-info-subtle text-info-subtle-foreground",
-        loading: "bg-info-subtle text-info-subtle-foreground",
+        success:
+          "[background-color:var(--ui-comp-toast-success-icon-bg)] [color:var(--ui-comp-toast-success-icon-fg)]",
+        error:
+          "[background-color:var(--ui-comp-toast-danger-icon-bg)] [color:var(--ui-comp-toast-danger-icon-fg)]",
+        warning:
+          "[background-color:var(--ui-comp-toast-warning-icon-bg)] [color:var(--ui-comp-toast-warning-icon-fg)]",
+        info: "[background-color:var(--ui-comp-toast-info-icon-bg)] [color:var(--ui-comp-toast-info-icon-fg)]",
+        loading:
+          "[background-color:var(--ui-comp-toast-info-icon-bg)] [color:var(--ui-comp-toast-info-icon-fg)]",
       },
     },
     defaultVariants: {
@@ -109,15 +111,15 @@ const toastContentVariants = cva("min-w-0 pr-1");
 const toastTitleVariants = cva("text-sm font-semibold leading-[1.35]");
 
 const toastDescriptionVariants = cva(
-  "mt-1 text-muted-foreground text-[0.8125rem] leading-[1.45]",
+  "mt-1 [color:var(--ui-comp-toast-description-fg)] text-[0.8125rem] leading-[1.45]",
 );
 
 const toastCloseVariants = cva(
-  "inline-grid place-items-center w-7 h-7 -mt-1 -mr-1 rounded-md text-muted-foreground transition-colors duration-120 hover:bg-accent hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2",
+  "inline-grid place-items-center w-7 h-7 -mt-1 -mr-1 rounded-md [color:var(--ui-comp-toast-close-fg)] transition-colors duration-120 hover:[background-color:var(--ui-comp-toast-close-hover-bg)] hover:[color:var(--ui-comp-toast-close-hover-fg)] focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2",
 );
 
 const toastActionVariants = cva(
-  "mt-2.5 px-2.5 py-1.5 rounded-md bg-secondary text-secondary-foreground text-[0.8125rem] font-semibold hover:bg-accent hover:text-accent-foreground",
+  "mt-2.5 px-2.5 py-1.5 rounded-md [background-color:var(--ui-comp-toast-action-bg)] [color:var(--ui-comp-toast-action-fg)] text-[0.8125rem] font-semibold transition-colors hover:[background-color:var(--ui-comp-toast-action-hover-bg)] hover:[color:var(--ui-comp-toast-action-hover-fg)]",
 );
 
 const toastProgressTrackVariants = cva(
@@ -125,16 +127,16 @@ const toastProgressTrackVariants = cva(
 );
 
 const toastProgressFillVariants = cva(
-  "h-full w-[var(--kb-toast-progress-fill-width)] bg-primary transition-[width] duration-250 linear",
+  "h-full w-[var(--kb-toast-progress-fill-width)] [background-color:var(--ui-comp-toast-progress-default-bg)] transition-[width] duration-250 linear",
   {
     variants: {
       variant: {
         default: "",
-        success: "bg-success",
-        error: "bg-danger",
-        warning: "bg-warning",
-        info: "bg-info",
-        loading: "bg-info",
+        success: "[background-color:var(--ui-comp-toast-progress-success-bg)]",
+        error: "[background-color:var(--ui-comp-toast-progress-danger-bg)]",
+        warning: "[background-color:var(--ui-comp-toast-progress-warning-bg)]",
+        info: "[background-color:var(--ui-comp-toast-progress-info-bg)]",
+        loading: "[background-color:var(--ui-comp-toast-progress-info-bg)]",
       },
     },
     defaultVariants: {

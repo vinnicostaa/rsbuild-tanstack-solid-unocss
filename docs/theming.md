@@ -71,12 +71,14 @@ Exemplos:
 
 ```css
 --ui-comp-navbar-bg: oklch(98.2% 0.003 250 / 0.9);
+--ui-comp-page-title-fg: var(--ui-sys-color-fg-default);
 --ui-comp-button-primary-bg: var(--ui-sys-color-action-primary-bg);
+--ui-comp-form-field-border: var(--ui-sys-color-border-input);
 --ui-comp-input-border: var(--ui-sys-color-border-input);
 --ui-comp-toast-border: var(--ui-sys-color-border-default);
 ```
 
-Use essa camada quando um componente precisar de contrato visual próprio, especialmente se tiver estados como hover, active, disabled ou selected.
+Use essa camada quando um componente, wrapper ou superfície existente precisar de contrato visual próprio, especialmente se tiver estados como hover, active, disabled, selected, invalid ou loading.
 
 ### 4. Compatibility aliases
 
@@ -167,7 +169,7 @@ Ao criar novos componentes, prefira `danger` internamente.
 4. Decisões globais entram em `--ui-sys-*`.
 5. Decisões específicas de componente entram em `--ui-comp-*`.
 6. Classes públicas podem continuar usando aliases como `bg-background`, `text-muted-foreground` e `border-border`.
-7. Estados recorrentes devem ser explícitos: `hover`, `active`, `selected`, `disabled`, `focus`.
+7. Estados recorrentes devem ser explícitos: `hover`, `active`, `selected`, `disabled`, `focus`, `invalid` e `loading`.
 8. Component tokens não devem ser usados por componentes diferentes daquele contrato.
 9. Antes de alterar contraste de texto, fundo, borda ou foco, valide acessibilidade visual.
 10. Mantenha `.dark` e `[data-kb-theme="dark"]` juntos.

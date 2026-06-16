@@ -1,6 +1,7 @@
-import type { JSX } from "solid-js";
+import { splitProps, type JSX } from "solid-js";
 import { Button, type ButtonProps } from "~/components/ui/button";
 import { useFormContext } from "~/contexts/form";
+import { cn } from "~/lib/utils";
 
 interface SubmitButtonProps extends Omit<ButtonProps, "type"> {
   label?: string;
@@ -10,6 +11,13 @@ interface SubmitButtonProps extends Omit<ButtonProps, "type"> {
 
 export function SubmitButton(props: SubmitButtonProps) {
   const form = useFormContext();
+  const [local, buttonProps] = splitProps(props, [
+    "label",
+    "loadingLabel",
+    "children",
+    "class",
+    "disabled",
+  ]);
 
   return (
     <form.Subscribe
@@ -20,16 +28,16 @@ export function SubmitButton(props: SubmitButtonProps) {
     >
       {(state) => (
         <Button
-          class="px-3 !py-2"
-          {...props}
+          {...buttonProps}
+          class={cn("px-3 !py-2", local.class)}
           type="submit"
           disabled={
-            state().isSubmitting || !state().canSubmit || props.disabled
+            state().isSubmitting || !state().canSubmit || local.disabled
           }
           loading={state().isSubmitting}
-          loadingText={props.loadingLabel ?? "Salvando..."}
+          loadingText={local.loadingLabel ?? "Salvando..."}
         >
-          {props.label ?? props.children ?? "Salvar"}
+          {local.label ?? local.children ?? "Salvar"}
         </Button>
       )}
     </form.Subscribe>

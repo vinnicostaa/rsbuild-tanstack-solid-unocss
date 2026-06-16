@@ -30,6 +30,7 @@ interface AppTextFieldProps {
   description?: string;
   onInput?: (value: string) => void;
   icon?: string;
+  class?: string;
 }
 
 export function AppTextField(props: AppTextFieldProps) {
@@ -70,12 +71,13 @@ export function AppTextField(props: AppTextFieldProps) {
       onChange={handleValueChange}
       onBlur={field().handleBlur}
       validationState={isInvalid() ? "invalid" : "valid"}
+      class={props.class}
     >
       <TextFieldLabel>{props.label}</TextFieldLabel>
 
       <div class="relative">
         <Show when={hasLeftIcon()}>
-          <div class="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-foreground">
+          <div class="absolute left-2.5 top-1/2 -translate-y-1/2 [color:var(--ui-comp-form-field-icon-fg)]">
             <span
               class={cn(isSearch() ? "i-lucide-search" : props.icon, "size-4")}
               aria-hidden="true"

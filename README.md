@@ -166,13 +166,17 @@ Shortcuts principais:
 
 - `site-header`
 - `brand-pill`
+- `brand-muted`
 - `nav-link`
+- `page-copy`
 - `island-shell`
+- `feature-card`
+- `feature-card-description`
 - `btn-primary`
 - `btn-secondary`
 - `field-control`
 
-Os shortcuts mais importantes já usam tokens de componente `--ui-comp-*`.
+Os shortcuts principais usam tokens de componente `--ui-comp-*`, incluindo navegação, superfícies de página, cards, botões e campos.
 
 ## Componentes incluídos
 
@@ -225,7 +229,7 @@ O plugin do TanStack Router está configurado em `rsbuild.config.ts`.
 - Preferir OKLCH no código-fonte.
 - Novos valores crus entram em `--ui-ref-*`.
 - Papéis globais entram em `--ui-sys-*`.
-- Contratos específicos de componente entram em `--ui-comp-*`.
+- Contratos específicos de componente, wrapper ou superfície entram em `--ui-comp-*`.
 - `danger` é o status canônico para erro/destrutivo.
 - `destructive` existe como alias de compatibilidade.
 - Sempre manter `.dark` e `[data-kb-theme="dark"]` juntos.

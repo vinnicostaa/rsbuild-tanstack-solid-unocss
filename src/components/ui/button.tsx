@@ -12,21 +12,22 @@ import { cn } from "~/lib/utils";
  * para uso como button, link ou trigger polymorphic.
  */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-150 disabled:pointer-events-none disabled:opacity-50 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-150 disabled:pointer-events-none disabled:opacity-80 disabled:[color:var(--ui-comp-button-disabled-fg)] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground",
+          "[background-color:var(--ui-comp-button-primary-bg)] [color:var(--ui-comp-button-primary-fg)] hover:[background-color:var(--ui-comp-button-primary-hover-bg)] hover:[color:var(--ui-comp-button-primary-hover-fg)] disabled:[background-color:var(--ui-comp-button-disabled-bg)]",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "[background-color:var(--ui-comp-button-danger-bg)] [color:var(--ui-comp-button-danger-fg)] hover:[background-color:var(--ui-comp-button-danger-hover-bg)] disabled:[background-color:var(--ui-comp-button-disabled-bg)]",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border [border-color:var(--ui-comp-button-outline-border)] [background-color:var(--ui-comp-button-outline-bg)] [color:var(--ui-comp-button-outline-fg)] hover:[background-color:var(--ui-comp-button-outline-hover-bg)] hover:[color:var(--ui-comp-button-outline-hover-fg)] disabled:[border-color:var(--ui-comp-button-disabled-border)] disabled:[background-color:var(--ui-comp-button-disabled-bg)]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        info: "bg-info text-info-foreground hover:bg-info/90",
+          "border [border-color:var(--ui-comp-button-secondary-border)] [background-color:var(--ui-comp-button-secondary-bg)] [color:var(--ui-comp-button-secondary-fg)] hover:[background-color:var(--ui-comp-button-secondary-hover-bg)] hover:[color:var(--ui-comp-button-secondary-hover-fg)] disabled:[border-color:var(--ui-comp-button-disabled-border)] disabled:[background-color:var(--ui-comp-button-disabled-bg)]",
+        ghost:
+          "[color:var(--ui-comp-button-ghost-fg)] hover:[background-color:var(--ui-comp-button-ghost-hover-bg)] hover:[color:var(--ui-comp-button-ghost-hover-fg)]",
+        link: "[color:var(--ui-comp-button-link-fg)] underline-offset-4 hover:[color:var(--ui-comp-button-link-hover-fg)] hover:underline",
+        info: "[background-color:var(--ui-comp-button-info-bg)] [color:var(--ui-comp-button-info-fg)] hover:[background-color:var(--ui-comp-button-info-hover-bg)] disabled:[background-color:var(--ui-comp-button-disabled-bg)]",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -72,13 +73,13 @@ const Button = <T extends ValidComponent = "button">(
   ]);
   return (
     <ButtonPrimitive.Root
+      {...others}
       class={cn(
         buttonVariants({ variant: local.variant, size: local.size }),
         local.class,
       )}
       disabled={local.disabled || local.loading}
       aria-busy={local.loading}
-      {...others}
     >
       <Show when={local.loading}>
         <span

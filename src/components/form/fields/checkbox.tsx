@@ -16,7 +16,7 @@ import { cn } from "~/lib/utils";
 import { getErrorMessages } from "./info";
 
 const checkboxFieldVariants = cva(
-  "rounded-lg border border-input bg-muted/30 data-[invalid]:border-danger",
+  "rounded-lg border [border-color:var(--ui-comp-form-field-border)] [background-color:var(--ui-comp-form-field-bg)] [color:var(--ui-comp-form-field-fg)] data-[invalid]:[border-color:var(--ui-comp-form-field-invalid-border)]",
   {
     variants: {
       size: {
@@ -89,7 +89,7 @@ export function AppCheckboxField(props: AppCheckboxFieldProps) {
             </Show>
 
             <Show when={field().state.meta.isValidating}>
-              <span class="flex items-center gap-1 text-info text-xs">
+              <span class="flex items-center gap-1 [color:var(--ui-comp-form-field-validating-fg)] text-xs">
                 <span
                   class="i-lucide-loader-2 size-3 animate-spin"
                   aria-hidden="true"

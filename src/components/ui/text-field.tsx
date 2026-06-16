@@ -32,20 +32,20 @@ type InputType =
 const textFieldRootVariants = cva("flex flex-col gap-1");
 
 const textFieldInputVariants = cva(
-  "flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background transition-colors placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 data-[invalid]:border-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+  "flex h-11 w-full rounded-md border [border-color:var(--ui-comp-input-border)] [background-color:var(--ui-comp-input-bg)] px-3 py-2 text-sm [color:var(--ui-comp-input-fg)] ring-offset-background transition-colors placeholder:[color:var(--ui-comp-input-placeholder-fg)] disabled:cursor-not-allowed disabled:[border-color:var(--ui-comp-input-disabled-border)] disabled:[background-color:var(--ui-comp-input-disabled-bg)] disabled:[color:var(--ui-comp-input-disabled-fg)] data-[invalid]:[border-color:var(--ui-comp-input-invalid-border)] focus-visible:[border-color:var(--ui-comp-input-focus-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
 );
 
 const textFieldTextAreaVariants = cva(
-  "min-h-24 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background transition-colors placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 data-[invalid]:border-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+  "min-h-24 w-full rounded-md border [border-color:var(--ui-comp-input-border)] [background-color:var(--ui-comp-input-bg)] px-3 py-2 text-sm [color:var(--ui-comp-input-fg)] ring-offset-background transition-colors placeholder:[color:var(--ui-comp-input-placeholder-fg)] disabled:cursor-not-allowed disabled:[border-color:var(--ui-comp-input-disabled-border)] disabled:[background-color:var(--ui-comp-input-disabled-bg)] disabled:[color:var(--ui-comp-input-disabled-fg)] data-[invalid]:[border-color:var(--ui-comp-input-invalid-border)] focus-visible:[border-color:var(--ui-comp-input-focus-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
 );
 
 const labelVariants = cva("text-sm font-medium leading-none", {
   variants: {
     variant: {
       label:
-        "data-[invalid]:text-danger data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
-      description: "font-normal text-muted-foreground",
-      error: "text-xs font-medium text-danger",
+        "[color:var(--ui-comp-field-label-fg)] data-[invalid]:[color:var(--ui-comp-field-error-fg)] data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
+      description: "font-normal [color:var(--ui-comp-field-description-fg)]",
+      error: "text-xs font-medium [color:var(--ui-comp-field-error-fg)]",
     },
   },
   defaultVariants: {

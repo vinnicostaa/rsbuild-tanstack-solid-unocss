@@ -8,7 +8,7 @@ export default function Header() {
           <Link to="/" class="brand-pill">
             <span class="brand-dot" />
             <span class="font-display">Frontend</span>
-            <span class="font-light text-muted-foreground">Boilerplate</span>
+            <span class="brand-muted font-light">Boilerplate</span>
           </Link>
         </h2>
 

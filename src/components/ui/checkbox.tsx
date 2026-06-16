@@ -23,57 +23,57 @@ const checkboxRootVariants = cva(
 
 const checkedVariantClasses = {
   default: [
-    "data-[checked]:border-primary",
-    "data-[checked]:bg-primary",
-    "data-[checked]:text-primary-foreground",
-    "data-[indeterminate]:border-primary",
-    "data-[indeterminate]:bg-primary",
-    "data-[indeterminate]:text-primary-foreground",
+    "data-[checked]:[border-color:var(--ui-comp-checkbox-default-checked-border)]",
+    "data-[checked]:[background-color:var(--ui-comp-checkbox-default-checked-bg)]",
+    "data-[checked]:[color:var(--ui-comp-checkbox-default-checked-fg)]",
+    "data-[indeterminate]:[border-color:var(--ui-comp-checkbox-default-checked-border)]",
+    "data-[indeterminate]:[background-color:var(--ui-comp-checkbox-default-checked-bg)]",
+    "data-[indeterminate]:[color:var(--ui-comp-checkbox-default-checked-fg)]",
   ].join(" "),
   secondary: [
-    "data-[checked]:border-secondary",
-    "data-[checked]:bg-secondary",
-    "data-[checked]:text-secondary-foreground",
-    "data-[indeterminate]:border-secondary",
-    "data-[indeterminate]:bg-secondary",
-    "data-[indeterminate]:text-secondary-foreground",
+    "data-[checked]:[border-color:var(--ui-comp-checkbox-secondary-checked-border)]",
+    "data-[checked]:[background-color:var(--ui-comp-checkbox-secondary-checked-bg)]",
+    "data-[checked]:[color:var(--ui-comp-checkbox-secondary-checked-fg)]",
+    "data-[indeterminate]:[border-color:var(--ui-comp-checkbox-secondary-checked-border)]",
+    "data-[indeterminate]:[background-color:var(--ui-comp-checkbox-secondary-checked-bg)]",
+    "data-[indeterminate]:[color:var(--ui-comp-checkbox-secondary-checked-fg)]",
   ].join(" "),
   success: [
-    "data-[checked]:border-success",
-    "data-[checked]:bg-success",
-    "data-[checked]:text-success-foreground",
-    "data-[indeterminate]:border-success",
-    "data-[indeterminate]:bg-success",
-    "data-[indeterminate]:text-success-foreground",
+    "data-[checked]:[border-color:var(--ui-comp-checkbox-success-checked-border)]",
+    "data-[checked]:[background-color:var(--ui-comp-checkbox-success-checked-bg)]",
+    "data-[checked]:[color:var(--ui-comp-checkbox-success-checked-fg)]",
+    "data-[indeterminate]:[border-color:var(--ui-comp-checkbox-success-checked-border)]",
+    "data-[indeterminate]:[background-color:var(--ui-comp-checkbox-success-checked-bg)]",
+    "data-[indeterminate]:[color:var(--ui-comp-checkbox-success-checked-fg)]",
   ].join(" "),
   warning: [
-    "data-[checked]:border-warning",
-    "data-[checked]:bg-warning",
-    "data-[checked]:text-warning-foreground",
-    "data-[indeterminate]:border-warning",
-    "data-[indeterminate]:bg-warning",
-    "data-[indeterminate]:text-warning-foreground",
+    "data-[checked]:[border-color:var(--ui-comp-checkbox-warning-checked-border)]",
+    "data-[checked]:[background-color:var(--ui-comp-checkbox-warning-checked-bg)]",
+    "data-[checked]:[color:var(--ui-comp-checkbox-warning-checked-fg)]",
+    "data-[indeterminate]:[border-color:var(--ui-comp-checkbox-warning-checked-border)]",
+    "data-[indeterminate]:[background-color:var(--ui-comp-checkbox-warning-checked-bg)]",
+    "data-[indeterminate]:[color:var(--ui-comp-checkbox-warning-checked-fg)]",
   ].join(" "),
   info: [
-    "data-[checked]:border-info",
-    "data-[checked]:bg-info",
-    "data-[checked]:text-info-foreground",
-    "data-[indeterminate]:border-info",
-    "data-[indeterminate]:bg-info",
-    "data-[indeterminate]:text-info-foreground",
+    "data-[checked]:[border-color:var(--ui-comp-checkbox-info-checked-border)]",
+    "data-[checked]:[background-color:var(--ui-comp-checkbox-info-checked-bg)]",
+    "data-[checked]:[color:var(--ui-comp-checkbox-info-checked-fg)]",
+    "data-[indeterminate]:[border-color:var(--ui-comp-checkbox-info-checked-border)]",
+    "data-[indeterminate]:[background-color:var(--ui-comp-checkbox-info-checked-bg)]",
+    "data-[indeterminate]:[color:var(--ui-comp-checkbox-info-checked-fg)]",
   ].join(" "),
   danger: [
-    "data-[checked]:border-danger",
-    "data-[checked]:bg-danger",
-    "data-[checked]:text-danger-foreground",
-    "data-[indeterminate]:border-danger",
-    "data-[indeterminate]:bg-danger",
-    "data-[indeterminate]:text-danger-foreground",
+    "data-[checked]:[border-color:var(--ui-comp-checkbox-danger-checked-border)]",
+    "data-[checked]:[background-color:var(--ui-comp-checkbox-danger-checked-bg)]",
+    "data-[checked]:[color:var(--ui-comp-checkbox-danger-checked-fg)]",
+    "data-[indeterminate]:[border-color:var(--ui-comp-checkbox-danger-checked-border)]",
+    "data-[indeterminate]:[background-color:var(--ui-comp-checkbox-danger-checked-bg)]",
+    "data-[indeterminate]:[color:var(--ui-comp-checkbox-danger-checked-fg)]",
   ].join(" "),
 };
 
 const checkboxControlVariants = cva(
-  "grid shrink-0 place-items-center border bg-background text-transparent ring-offset-background transition-colors peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 data-[invalid]:border-danger data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+  "grid shrink-0 place-items-center border [border-color:var(--ui-comp-checkbox-border)] [background-color:var(--ui-comp-checkbox-bg)] text-transparent ring-offset-background transition-colors peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 data-[invalid]:[border-color:var(--ui-comp-checkbox-invalid-border)] data-[disabled]:cursor-not-allowed data-[disabled]:[opacity:var(--ui-comp-checkbox-disabled-opacity)]",
   {
     variants: {
       variant: checkedVariantClasses,
@@ -104,7 +104,7 @@ const checkboxIndicatorVariants = cva("grid place-items-center text-current", {
 });
 
 const checkboxLabelVariants = cva(
-  "font-medium leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70 data-[invalid]:text-danger",
+  "font-medium leading-none [color:var(--ui-comp-checkbox-label-fg)] data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70 data-[invalid]:[color:var(--ui-comp-checkbox-error-fg)]",
   {
     variants: {
       size: {
@@ -120,7 +120,7 @@ const checkboxLabelVariants = cva(
 );
 
 const checkboxDescriptionVariants = cva(
-  "leading-relaxed text-muted-foreground",
+  "leading-relaxed [color:var(--ui-comp-checkbox-description-fg)]",
   {
     variants: {
       size: {
@@ -135,18 +135,21 @@ const checkboxDescriptionVariants = cva(
   },
 );
 
-const checkboxErrorMessageVariants = cva("font-medium text-danger", {
-  variants: {
-    size: {
-      sm: "text-xs",
-      default: "text-xs",
-      lg: "text-sm",
+const checkboxErrorMessageVariants = cva(
+  "font-medium [color:var(--ui-comp-checkbox-error-fg)]",
+  {
+    variants: {
+      size: {
+        sm: "text-xs",
+        default: "text-xs",
+        lg: "text-sm",
+      },
+    },
+    defaultVariants: {
+      size: "default",
     },
   },
-  defaultVariants: {
-    size: "default",
-  },
-});
+);
 
 type CheckboxVariants = VariantProps<typeof checkboxControlVariants>;
 type CheckboxRootVariants = VariantProps<typeof checkboxRootVariants>;
